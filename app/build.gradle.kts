@@ -91,8 +91,8 @@ dependencies {
 
     //compose navigation
     implementation("androidx.navigation:navigation-compose:2.4.0-alpha06")
-
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
-    implementation("com.google.accompanist:accompanist-navigation-animation:0.17.0")
+
 }
