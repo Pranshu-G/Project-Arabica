@@ -1,26 +1,22 @@
 package com.example.arabica.screens.main
 
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.fillMaxWidth
+
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarColors
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontStyle
-
 import androidx.navigation.NavController
+import com.example.arabica.screens.coffee.NewCoffeeAppBar
 
 
 @Composable
@@ -29,10 +25,34 @@ fun MainScreen(navController: NavController) {
         mutableStateOf("")
     }
     Scaffold(
-        topBar = {
-            AppBar(title = "Arabica")
+        content = {},
+        floatingActionButton = {
+            MainFAB()
         },
-        content = {}
+        bottomBar = {
+            MainBottomBar()
+        }
     )
 }
 
+
+
+@Composable
+fun MainFAB(){
+    var isClicked by remember {
+        mutableStateOf(false)
+    }
+    FloatingActionButton(
+        onClick = {
+            isClicked=true
+        },
+        containerColor = MaterialTheme.colorScheme.primary,
+        shape = MaterialTheme.shapes.extraSmall,
+    ) {
+        Icon(imageVector = Icons.Filled.Add,
+            contentDescription = "Add Coffee")
+        if(isClicked){
+         NewCoffeeAppBar(isClicked)
+        }
+    }
+}

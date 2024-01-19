@@ -43,14 +43,3 @@ fun SetupComposable(
 }
 
 
-
-@Composable
-fun DetailScreen(
-    name: String?
-) {
-    Box(contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize(),
-        content = {
-            Text(text = "Hello, $name")
-        })
-}
